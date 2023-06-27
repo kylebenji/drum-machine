@@ -1,6 +1,7 @@
 import React from "react";
 import soundsObj from "./sounds.json";
-class App extends React.Component {
+import { isNull } from "mathjs";
+class Drums extends React.Component {
   constructor(props) {
     super(props);
     this.state = { display: "-" };
@@ -18,7 +19,7 @@ class App extends React.Component {
 
   playSoundKey(event) {
     const audio = document.getElementById(event.key.toUpperCase());
-    this.playSound(audio);
+    if (!isNull(audio)) this.playSound(audio);
   }
 
   playSound(element) {
@@ -60,4 +61,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Drums;
